@@ -1,0 +1,75 @@
+/* Basic modern, accessible CSS */
+:root {
+  --bg: #0b1220;
+  --surface: #0f172a;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --brand: #0ea5e9;
+  --ring: rgba(14, 165, 233, 0.4);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 20% 0%, #0b1b33, #060a14), var(--bg);
+  line-height: 1.6;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .75rem 0;
+}
+
+.logo { font-weight: 700; text-decoration: none; color: var(--text); }
+.menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem; }
+.menu a { color: var(--muted); text-decoration: none; }
+.menu a:hover, .menu a[aria-current="page"] { color: var(--text); }
+
+.hero { padding: 6rem 0 2rem; text-align: center; }
+.hero h1 { font-size: clamp(2rem, 4vw + 1rem, 3.25rem); margin: 0 0 .5rem; }
+.hero p { color: var(--muted); max-width: 60ch; margin: 0 auto 1.25rem; }
+
+.cta { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+.btn, .btn-outline {
+  display: inline-block;
+  padding: .75rem 1rem;
+  border-radius: .75rem;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+.btn { background: var(--brand); color: #00131a; }
+.btn:hover { filter: brightness(1.1); }
+.btn-outline { border-color: var(--brand); color: var(--text); }
+.btn-outline:hover { background: rgba(14,165,233,.1); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0 4rem;
+}
+.card {
+  background: linear-gradient(180deg, #0f1b33, #0b1020);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+footer { color: var(--muted); border-top: 1px solid rgba(255,255,255,.08); padding: 2rem 0 3rem; margin-top: 2rem; }
+
+/* Focus styles */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 .25rem var(--ring);
+}
